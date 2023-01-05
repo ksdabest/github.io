@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        .column {
+          float: left;
+          width: 50%;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+    body {
+        background-color: lavender
+      }
+        </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  
+    <h1 class="title">About Me </h1>
+
+<div class="row">
+    <div class="column">
+        <img src="images/myPhoto.jpg" alt="ks photo" title="photo" style="width:300px;height:500px">
+    </div>
+
+    <div class="column1"><div style="text-align: left;">
+
+        <h3>Jayda Seow</h3>
+    <h5>@kah.shu3n</h5>
+    <div class="Intro"
+    <p> Hello everyone! I am Kah Shuen but if you cannot remember my name 
+        you can call me Jayda. I am more of an artistic person, I love 
+        to play the piano and sometimes the guitar. I also like to meet
+        up with my friends and go on a journey of cafe hopping, exploring
+        new places with my friends. I am studying in Digital Design and 
+        Development in Republic Polytechnic, and I am aiming for a degree
+        in university.
+    </p>
+    <button class='restart' value='play'>Restart</button>
+
+    </div>
+    </div>
+<p>Age:</p>
+    <div class="age">
+
+  <script>
+    
+    anime({
+  targets: '.column1',
+  translateY: 50,
+  delay: anime.stagger(100) // increase delay by 100ms for each elements.
+});
+
+anime({
+targets: '.age',
+innerHTML: [0, 18], //start and end values
+easing: 'linear',
+round: 1, //rounds off to zero decimal places 
+duration: 2000
+});
+
+anime({
+  targets: '.title',
+  translateX: 250,
+  direction: 'alternate',
+  // loop: true,
+  easing: 'linear'
+});
+
+anime({
+  targets: '.column',
+  translateX: anime.stagger(-8, {grid: [14, 5], from: 'center', axis: 'x'}),
+  translateY: anime.stagger(-8, {grid: [14, 5], from: 'center', axis: 'y'}),
+  rotateZ: anime.stagger([0, 360], {grid: [14, 5], from: 'center', axis: 'x'}),
+  delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
+  easing: 'easeInOutQuad'
+});
+
+var animation = anime({
+  targets: '.row',
+  translateX: 250,
+  delay: function(el, i) { return i * 100; },
+  direction: 'alternate',
+  // loop: true,
+  easing: 'easeInOutSine'
+});
+
+document.querySelector('.restart').onclick = animation.restart;
+
+
+
+  </script>
+
+</body>
+    </html>
